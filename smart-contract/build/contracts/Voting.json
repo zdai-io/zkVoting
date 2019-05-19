@@ -8428,11 +8428,44 @@
     "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {
-    "4": {
+    "1": {
       "events": {},
       "links": {},
-      "address": "0x08baF2d618c103a1Eb158e0A939B93bd998b5523",
-      "transactionHash": "0xfdaf505074c6b06c1df3b971b5b6338dcbf7dcfcf2156b699fbf87c681a97d66"
+      "address": "0x300dC68325efB4e69a75F25a5c5D9794134f322f",
+      "transactionHash": "0xadf7bec65548eafc7dba8814a741d9b652d3169dc0d561666e8bba7b39dd4a8a"
+    },
+    "4": {
+      "events": {
+        "0x5afbb10aa70126bb6b28672942d03f8f2de6a49dd7c0e34ed647a01d51362bc1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "hash",
+              "type": "uint256"
+            }
+          ],
+          "name": "UtxoCreated",
+          "type": "event",
+          "signature": "0x5afbb10aa70126bb6b28672942d03f8f2de6a49dd7c0e34ed647a01d51362bc1"
+        },
+        "0x21d9d7f470fb9746b076065f4d8e30ebf802f7f33d5b67a5840b2557992e4220": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "hash",
+              "type": "uint256"
+            }
+          ],
+          "name": "UtxoRemoved",
+          "type": "event",
+          "signature": "0x21d9d7f470fb9746b076065f4d8e30ebf802f7f33d5b67a5840b2557992e4220"
+        }
+      },
+      "links": {},
+      "address": "0x559301014B74683799185791330e0017D548964a",
+      "transactionHash": "0xc6b4a76d6f0645c0afed60b1e11567a6cfe020bc0fb61280198f5ee44017246f"
     },
     "4447": {
       "events": {},
@@ -8454,7 +8487,7 @@
     }
   },
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-05-19T11:44:59.227Z",
+  "updatedAt": "2019-05-19T12:49:38.964Z",
   "devdoc": {
     "methods": {}
   },

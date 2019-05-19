@@ -2157,11 +2157,82 @@
     "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {
-    "4": {
+    "1": {
       "events": {},
       "links": {},
-      "address": "0x1501a70DB68247a1BF724130b5b838775D81D7EC",
-      "transactionHash": "0xce745e7050db034ace2067bf257f8e187f0a2f7a86fd6181a1c8cb59e3d03e13"
+      "address": "0x06f89a58BBC9Ed8fcCc7735adE681Ec211eCf004",
+      "transactionHash": "0x389b0c5d043225b57d0eb3896cf2811d20c67b1adb093e31c1cab0c8f58d53b6"
+    },
+    "4": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event",
+          "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event",
+          "signature": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event",
+          "signature": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+        }
+      },
+      "links": {},
+      "address": "0xdDE42fa8eA6f9DE48c9f4e4a06480C08F5B1888F",
+      "transactionHash": "0xefc734eebced0ac0343e99e91c7e7b28779ff28e022b8e7d5ad4786e214f19e0"
     },
     "4447": {
       "events": {},
@@ -2183,7 +2254,7 @@
     }
   },
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-05-19T11:44:59.238Z",
+  "updatedAt": "2019-05-19T12:49:38.977Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
