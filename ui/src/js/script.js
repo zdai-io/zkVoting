@@ -53,7 +53,7 @@ async function stateVote() {
 async function stateStats() {
     let contract = await getContract();
     let answerList = await (await fetch('answers.json')).json();
-    let results = [];
+    let results = [], labels = [], series = [];
     let totals = 0;
     for(let ans in answerList) {
         let bal = await contract.balanceOf.call(answerList[ans]);
@@ -61,9 +61,17 @@ async function stateStats() {
         totals += bal;
     }
 
-    for(let ans in results.sort()) {
-
+    for(let ans in results) { // todo sort
+        labels.push(ans);
+        series.push(results[ans] / totals);
     }
+
+    new Chartist.Bar('.ct-chart', {labels, series}, {
+        distributeSeries: true,
+        horizontalBars: true,
+        axisX: { showGrid: false },
+        axisY: { showGrid: false },
+    });
 }
 
 async function faucetButtonPressed() {
