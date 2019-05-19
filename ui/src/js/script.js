@@ -8,12 +8,34 @@ const ass = assist.init(assistConfig);
 if (!localStorage.state) localStorage.state = "init";
 let state;
 
-async function getContract() {
+async function getErcContract() {
     let abi = await (await fetch("abi.json")).json();
     return ass.Contract(web3.eth.contract(abi).at(tokenAddress));
 }
 
+async function getVotingContract() {
+    // todo
+    let abi = await (await fetch("abi.json")).json();
+    return ass.Contract(web3.eth.contract(abi).at(tokenAddress));
+}
+
+const rbigint = (nbytes) => snarkjs.bigInt.leBuff2int(crypto.randomBytes(nbytes));
+function serializeAndHashUTXO(tx) {
+    const b = Buffer.concat([snarkjs.bigInt(tx.balance).leInt2Buff(30), snarkjs.bigInt(tx.salt).leInt2Buff(14), snarkjs.bigInt(tx.owner).leInt2Buff(20)]);
+    const h = pedersen.hash(b);
+    const hP = babyjub.unpackPoint(h);
+    return hP[0];
+}
+
 async function makeProof(name, input) {
+
+}
+
+async function proveDeposit() {
+
+}
+
+async function proveVote() {
 
 }
 
@@ -24,7 +46,7 @@ async function stateInit() {
         $('#welcome-invalid, #btn-go-list').show();
         return;
     }
-    let contract = await getContract();
+    let contract = await getErcContract();
     let bal = await contract.balanceOf.call(state.accountAddress);
 
     console.log("bal:" + bal.toString());
@@ -38,20 +60,81 @@ async function stateInit() {
     $('#welcome-valid, #btn-go-anonymize').show();
 }
 
-async function stateAnonymize() {
-    let proxy = "0xd00B71E95f1c85b856dD54Cb0ad22891eAFaA5de";
+async function anonymizeButtonPressed() {
+    try {
+        activateLoading('#loader2');
+        let proxy = $('#justForm').val();
 
-    // todo private transfer
+        let salt = rbigint(14);
+        localStorage.salt = salt; // save private coin data
+        let tx = {
+            balance: 1,
+            salt: salt,
+            owner: proxy
+        };
+        let hash = serializeAndHashUTXO(tx);
+        localStorage.hash = hash;
+        let input = {
+            balance: 1,
+            salt: salt,
+            owner: proxy,
+            hash: hash
+        };
+        let [pi_a, pi_b, pi_c, pubinputs] = await proveDeposit(input);
+        let voting = await getVotingContract();
+        let result = await voting.methods.deposit(pi_a, pi_b, pi_c, pubinputs).send({from:state.accountAddress, gas:"6000000", gasprice:"2000000000"});
+        localStorage.state = 'vote';
+        switchPage('vote');
+    }
+    catch (error) {
+        alert(error);
+    }
+    finally {
+        deactivateLoading('#loader2');
+    }
 }
 
-async function stateVote() {
-    // todo vote list
+async function voteButtonPressed() {
+    try {
+        activateLoading('#loader4');
+        if (!localStorage.salt) {
+            alert("can't find private hash of your vote in browser storage");
+            return ;
+        }
 
-    // todo stats
+        // todo wait until anonymize transaction is mined and ensure that we have it
+
+        let answerList = await (await fetch('answers.json')).json();
+        let selected = $('input[name=exampleRadios]:checked', '#voteForm').val();
+        let selectedAddr = answerList[selected];
+
+        let selector = Array(10).fill(0);
+        selector[answerList.keys().indexOf(selected)] = 1;
+
+        let input = {
+            balance: 1,
+            salt: localStorage.salt,
+            owner: state.accountAddress,
+            all_in_hashes: Array(10).fill(localStorage.hash), // todo fill with actual utxos
+            in_selector: selector
+        };
+
+        [pi_a, pi_b, pi_c, pubinputs] = await proveVote(input);
+        let result = await voting.methods.withdrawal(pi_a, pi_b, pi_c, pubinputs, selectedAddr).send({from:state.accountAddress, gas:"6000000", gasprice:"2000000000"});
+        localStorage.state = 'stats';
+        switchPage('stats');
+        stateStats();
+    }
+    catch (error) {
+        alert(error);
+    }
+    finally {
+        deactivateLoading('#loader4');
+    }
 }
 
 async function stateStats() {
-    let contract = await getContract();
+    let contract = await getErcContract();
     let answerList = await (await fetch('answers.json')).json();
     let results = [], labels = [], series = [];
     let totals = 0;
@@ -133,8 +216,8 @@ async function main() {
 
         switch (localStorage.state) {
             case "init":      switchPage("init");       await stateInit(); break;
-            case "anonymize": switchPage("anonymize");  await stateAnonymize(); break;
-            case "vote":      switchPage("vote");       await stateVote(); break;
+            case "anonymize": switchPage("anonymize");  break;
+            case "vote":      switchPage("vote");       break;
             case "stats":     switchPage("stats");      await stateStats(); break;
             default: console.log("Invalid state " + localStorage.state);
         }

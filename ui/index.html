@@ -69,11 +69,11 @@
                                      Go to list of approved addresses
                                 </div>
                                 <div id="btn-go-anonymize" class="hide btn btn-lg btn-round btn-github btn-default"
-                                     onclick="localStorage.state = 'anonymize'; switchPage('anonymize'); stateAnonymize();">
+                                     onclick="localStorage.state = 'anonymize'; switchPage('anonymize');">
                                      Proceed to vote
                                 </div>
                                 <div id="btn-go-results" class="hide btn btn-lg btn-round btn-github btn-default"
-                                     onclick="localStorage.state = 'stats'; switchPage('anonymize'); stateStats();">
+                                     onclick="localStorage.state = 'stats'; switchPage('stats'); stateStats();">
                                      Go to result page
                                 </div>
                             </div>
@@ -93,13 +93,13 @@
                         <div class="ld ld-ring ld-spin"></div>
                         <div class="card">
                             <div class="card-body">
-                                <h3>First, you need to make a shielded transfer of your token to another address
+                                <h3>First, you need to make an anonymous transfer of your token to another address
                                     that will be used to submit your vote. Generate a new wallet and enter its address below:</h3>
                                 <div class="form-group bmd-form-group col-md-8 col-lg-6 offset-lg-3 offset-md-1">
                                     <input type="text" class="form-control" id="justForm" placeholder="0x5e1Cf484557D6F6664f9Bbe6c9E806ca472f8882">
                                 </div>
 
-                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="goNext();">Transfer your vote
+                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="anonymizeButtonPressed();">Transfer your vote
                                 </button>
                             </div>
                         </div>
@@ -118,8 +118,9 @@
                         <div class="ld ld-ring ld-spin"></div>
                         <div class="card">
                             <div class="card-body">
+                                <h3>Now switch to your anonymous account and wait until it receives your vote token</h3>
                                 <h3>Submit your vote for one of those options</h3>
-                                <form>
+                                <form id="voteForm">
                                     <div class="form-check form-check-radio">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="radio" name="exampleRadios"
@@ -158,8 +159,8 @@
                                     </div>
                                 </form>
                                 <button class="btn btn-lg btn-round btn-github btn-default"
-                                        onclick="goNext();">
-                                    DOLGOV
+                                        onclick="voteButtonPressed();">
+                                    Vote
                                 </button>
                             </div>
                         </div>
