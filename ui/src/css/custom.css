@@ -95,3 +95,7 @@ foreignObject {
     font-weight: bold !important;
     color: black !important;
 }
+
+.hide {
+    display: none;
+}

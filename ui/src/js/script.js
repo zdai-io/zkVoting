@@ -1,12 +1,9 @@
 const tokenAddress = "0x2c1c52946dc54276daa5db9ddce2e929d93eb16e";
-const voterList = ["0xb6762AEc2b3cD39d31651CB48F38D1Cd4FDaFb8B"].map(a => a.toLowerCase());
-const answerList = {
-    "a": "q"
-};
 const assistConfig = {
     networkId: 4,
     dappId: '743c7131-72eb-48e6-bce6-af5f55796fcc',
 };
+minGas = 1e16;
 const ass = assist.init(assistConfig);
 if (!localStorage.state) localStorage.state = "init";
 let state;
@@ -21,21 +18,24 @@ async function makeProof(name, input) {
 }
 
 async function stateInit() {
+    let voterList = (await (await fetch('voters.json?3')).json()).map(a => a.toLowerCase());
     if (!voterList.includes(state.accountAddress.toLowerCase())) {
         console.log("no addr");
+        $('#welcome-invalid, #btn-go-list').show();
         return;
     }
     let contract = await getContract();
-    let bal = await contract.balanceOf.call(addr);
+    let bal = await contract.balanceOf.call(state.accountAddress);
 
     console.log("bal:" + bal.toString());
 
     if (bal.eq(0)) {
         console.log("no bal");
+        $("#welcome-voted, #btn-go-results").show();
         return;
     }
 
-    // todo your address is eligible to cast a vote, press next to continue
+    $('#welcome-valid, #btn-go-anonymize').show();
 }
 
 async function stateAnonymize() {
@@ -52,31 +52,60 @@ async function stateVote() {
 
 async function stateStats() {
     let contract = await getContract();
+    let answerList = await (await fetch('answers.json')).json();
+    let results = [];
+    let totals = 0;
     for(let ans in answerList) {
         let bal = await contract.balanceOf.call(answerList[ans]);
-        ///
+        results[ans] = bal;
+        totals += bal;
+    }
+
+    for(let ans in results.sort()) {
+
     }
 }
 
-async function stateFaucet() {
-    // todo
-    //
-    let result = await fetch("https://faucet.zdai.io/web3/rinkeby/tokensPlease", {
-        method: 'POST',
-        body: {"wallet": state.accountAddress},
-        headers:{
-            'Content-Type': 'application/json'
+async function faucetButtonPressed() {
+    try {
+        activateLoading('#loader3');
+        let result = await (await fetch("https://faucet.zdai.io/web3/rinkeby/tokensPlease", {
+            method: 'POST',
+            body: {"wallet": state.accountAddress},
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })).json();
+        if (result.ok && result.success) {
+            //location.reload();
+            goNext();
+        } else {
+            alert("cannot transfer tokens: " + result.body);
         }
-    });
-    if (result.ok && result.success) {
-        // todo
-    } else {
-        console.log("cannot transfer tokens: " + result.body);
+    }
+    catch (error) {
+        alert(error);
+    }
+    finally {
+        deactivateLoading('#loader3');
     }
 }
 
-function switchPage() {
+const steps = {
+    init: 1,
+    anonymize: 2,
+    vote: 3,
+    stats: 4,
+    faucet: 0,
+};
 
+function switchPage(step) {
+    $('.step').hide();
+    $('.step-progress').removeClass('active');
+    $('#step' + steps[step]).show();
+    for (let i = 0; i < steps[step]; i++) {
+        $('#step' + i + '-progress').addClass('active');
+    }
 }
 
 async function main() {
@@ -90,9 +119,8 @@ async function main() {
         //  - The wallet is unlocked and contains at least `minimumBalance` in wei
         //  - They have connected their wallet to the dapp, congruent with EIP1102
 
-        if (state.accountBalance < minGas) { // todo bigint compare
+        if (localStorage.state !== 'init' && localStorage.state !== 'stats' && state.accountBalance < minGas) { // todo bigint compare
             switchPage("faucet");
-            await stateFaucet();
         }
 
         switch (localStorage.state) {

@@ -22,15 +22,36 @@
     <div id="bar" class="row">
         <div class="col-12 text-center">
             <ul class="progressbar">
-                <li id="st1">Step 1</li>
-                <li id="st2">Step 2</li>
-                <li id="st3">Step 3</li>
-                <li id="st4">Step 4</li>
+                <li id="step1-progress" class="step-progress">Step 1</li>
+                <li id="step2-progress" class="step-progress">Step 2</li>
+                <li id="step3-progress" class="step-progress">Step 3</li>
+                <li id="step4-progress" class="step-progress">Step 4</li>
             </ul>
         </div>
     </div>
 </div>
-<section id="step1">
+<section style="display: none" id="step0" class="step">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-body ld-over" id="loader3">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Looks like your wallet doesn't have any eth on it. You will need some to pay the gas fee
+                                    You can get some Rinkeby ether for free by clicking this button</h3>
+                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="faucetButtonPressed();">DOLGOV
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="step1" class="step">
     <div class="container">
         <div class="row">
             <div class="col-8 offset-2 text-center">
@@ -39,13 +60,21 @@
                         <div class="ld ld-ring ld-spin"></div>
                         <div class="card">
                             <div class="card-body">
-                                <h3>Your address is eligible to cast a vote, press next to continue</h3>
-                                <h3>// Your address doesn't contain a vote token, looks like you already voted with this address [[go to stats page]]</h3>
-                                <h3>// Your address is not in list of EthNewYork attendees, please select address
-                                    you used to stake on kickback. [[List]]</h3>
-                                <div class="btn btn-lg btn-round btn-github btn-default"
-                                     onclick="activateLoading('loader1'); goNext()">
-                                    My Button
+                                <h3 id="welcome-valid" class="hide">Your address is eligible to cast a vote, press next to continue</h3>
+                                <h3 id="welcome-voted" class="hide">Your address doesn't contain a vote token, looks like you already voted with this address</h3>
+                                <h3 id="welcome-invalid" class="hide">Your address is not in list of EthNewYork attendees, please select address
+                                    you used to stake on kickback in your Metamask.</h3>
+                                <div id="btn-go-list" class="hide btn btn-lg btn-round btn-github btn-default"
+                                     onclick="window.location.href = '/voters.json'">
+                                     Go to list of approved addresses
+                                </div>
+                                <div id="btn-go-anonymize" class="hide btn btn-lg btn-round btn-github btn-default"
+                                     onclick="localStorage.state = 'anonymize'; switchPage('anonymize'); stateAnonymize();">
+                                     Proceed to vote
+                                </div>
+                                <div id="btn-go-results" class="hide btn btn-lg btn-round btn-github btn-default"
+                                     onclick="localStorage.state = 'stats'; switchPage('anonymize'); stateStats();">
+                                     Go to result page
                                 </div>
                             </div>
                         </div>
@@ -55,7 +84,7 @@
         </div>
     </div>
 </section>
-<section style="display: none" id="step2">
+<section style="display: none" id="step2" class="step">
     <div class="container">
         <div class="row">
             <div class="col-8 offset-2 text-center">
@@ -70,7 +99,7 @@
                                     <input type="text" class="form-control" id="justForm" placeholder="0x5e1Cf484557D6F6664f9Bbe6c9E806ca472f8882">
                                 </div>
 
-                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="goNext();">DOLGOV
+                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="goNext();">Transfer your vote
                                 </button>
                             </div>
                         </div>
@@ -80,28 +109,7 @@
         </div>
     </div>
 </section>
-<section style="display: none" id="step3">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 offset-2 text-center">
-                <div class="panel panel-default">
-                    <div class="panel-body ld-over" id="loader3">
-                        <div class="ld ld-ring ld-spin"></div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h3>Looks like your wallet doesn't have any eth on it. You will need some to pay the gas fee
-                                    You can get some Rinkeby ether for free by clicking this button</h3>
-                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="goNext();">DOLGOV
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section style="display: none" id="step4">
+<section style="display: none" id="step3" class="step">
     <div class="container">
         <div class="row">
             <div class="col-8 offset-2 text-center">
@@ -174,7 +182,7 @@
             </div>
         </div>
 </section>
-<section id="step5">
+<section id="step4" class="step">
     <div class="container">
         <div class="row">
             <div class="col-10 offset-1">
@@ -222,7 +230,7 @@
     function goNext() {
         wait();
         let step = "#step" + pos;
-        let st = "#st" + pos;
+        let st = "#step" + pos + '-progress';
         $(step).hide();
         pos++;
         let nextStep = "#step" + pos;
