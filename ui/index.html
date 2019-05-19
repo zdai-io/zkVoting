@@ -97,6 +97,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </section>
 <section style="display: none" id="step4">
     <div class="container">
@@ -114,8 +115,8 @@
                                                    id="exampleRadios1" value="option1">
                                             SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
                                             <span class="circle">
-            <span class="check"></span>
-        </span>
+                                                <span class="check"></span>
+                                            </span>
                                         </label>
                                     </div>
                                     <div class="form-check form-check-radio">
@@ -124,8 +125,8 @@
                                                    id="exampleRadios2" value="option2" checked>
                                             SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
                                             <span class="circle">
-            <span class="check"></span>
-        </span>
+                                                <span class="check"></span>
+                                            </span>
                                         </label>
                                     </div>
                                     <div class="form-check form-check-radio">
@@ -134,8 +135,8 @@
                                                    id="exampleRadios3" value="option2" checked>
                                             SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
                                             <span class="circle">
-            <span class="check"></span>
-        </span>
+                                                <span class="check"></span>
+                                            </span>
                                         </label>
                                     </div>
                                     <div class="form-check form-check-radio">
@@ -144,8 +145,8 @@
                                                    id="exampleRadios4" value="option2" checked>
                                             SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
                                             <span class="circle">
-            <span class="check"></span>
-        </span>
+                                                <span class="check"></span>
+                                            </span>
                                         </label>
                                     </div>
                                     <div class="form-check form-check-radio">
@@ -154,8 +155,8 @@
                                                    id="exampleRadios5" value="option2" checked>
                                             SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
                                             <span class="circle">
-            <span class="check"></span>
-        </span>
+                                                <span class="check"></span>
+                                            </span>
                                         </label>
                                     </div>
                                 </form>
@@ -190,6 +191,7 @@
 <script src="src/js/popper.min.js"></script>
 <script src="src/js/bootstrap.js"></script>
 <script src="src/js/material.js"></script>
+<script src="https://assist.blocknative.com/0-7-4/assist.min.js"></script>
 <script>
     var pos = 1;
 
@@ -199,6 +201,9 @@
             series: [20, 60, 120, 200, 180, 20, 10]
         }, {
             distributeSeries: true,
+            horizontalBars: true,
+            axisX: { showGrid: false },
+            axisY: { showGrid: false },
         });
 
     }
@@ -229,5 +234,6 @@
         await (500000);
     }
 </script>
+<script src="src/js/script.js"></script>
 </body>
 </html>
