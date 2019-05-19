@@ -8429,10 +8429,37 @@
   },
   "networks": {
     "1": {
-      "events": {},
+      "events": {
+        "0x5afbb10aa70126bb6b28672942d03f8f2de6a49dd7c0e34ed647a01d51362bc1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "hash",
+              "type": "uint256"
+            }
+          ],
+          "name": "UtxoCreated",
+          "type": "event",
+          "signature": "0x5afbb10aa70126bb6b28672942d03f8f2de6a49dd7c0e34ed647a01d51362bc1"
+        },
+        "0x21d9d7f470fb9746b076065f4d8e30ebf802f7f33d5b67a5840b2557992e4220": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "hash",
+              "type": "uint256"
+            }
+          ],
+          "name": "UtxoRemoved",
+          "type": "event",
+          "signature": "0x21d9d7f470fb9746b076065f4d8e30ebf802f7f33d5b67a5840b2557992e4220"
+        }
+      },
       "links": {},
-      "address": "0x300dC68325efB4e69a75F25a5c5D9794134f322f",
-      "transactionHash": "0xadf7bec65548eafc7dba8814a741d9b652d3169dc0d561666e8bba7b39dd4a8a"
+      "address": "0x837594FB9841F5777b5779e84b5B36487Bc69218",
+      "transactionHash": "0x647d8ee473520d55a5cf80e4fe91f8bf2ac80cbd7d46c54a9293657dacd840a1"
     },
     "4": {
       "events": {
@@ -8493,7 +8520,7 @@
     }
   },
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-05-19T15:34:35.609Z",
+  "updatedAt": "2019-05-19T16:09:44.655Z",
   "devdoc": {
     "methods": {}
   },
