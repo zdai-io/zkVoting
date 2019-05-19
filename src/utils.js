@@ -5,6 +5,7 @@ const crypto = require("crypto");
 const pedersen = require("../circomlib/src/pedersenHash.js");
 const babyjub = require("../circomlib/src/babyjub.js");
 const BigInt = require("big-integer");
+const groth = snarkjs["groth"];
 
 const alt_bn_128_q = bigInt("21888242871839275222246405745257275088548364400416034343698204186575808495617");
 

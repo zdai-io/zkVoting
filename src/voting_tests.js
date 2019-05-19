@@ -9,8 +9,15 @@ if (env.NODE_ENV !== 'production') {
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const fs = require("fs");
 const Web3 = require("web3");
-
+//const circom = require("circom");
+//const snarkjs = require("snarkjs");
+//const groth = snarkjs["groth"];
+//const pedersen = require("../circomlib/src/pedersenHash.js");
+//const babyjub = require("../circomlib/src/babyjub.js");
+//const crypto = require("crypto");
+//const bigInt = require("big-integer");
 const {stringifyBigInts, unstringifyBigInts, p256, fload, fdump, rbigint, serializeAndHashUTXO, shuffle, addrToInt, makeProof} = require("./utils.js");
+//const {spawn} = require('child_process');
 
 
 const alt_bn_128_q = 21888242871839275222246405745257275088548364400416034343698204186575808495617n;

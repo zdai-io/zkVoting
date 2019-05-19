@@ -1,5 +1,5 @@
-const tokenAddress = "0x2c1c52946dc54276daa5db9ddce2e929d93eb16e"; // todo insert prod address
-const votingAddress = "0x2c1c52946dc54276daa5db9ddce2e929d93eb16e";
+const tokenAddress = "0xdDE42fa8eA6f9DE48c9f4e4a06480C08F5B1888F"; // todo insert prod address
+const votingAddress = "0x559301014B74683799185791330e0017D548964a";
 const assistConfig = {
     networkId: 4,
     dappId: '743c7131-72eb-48e6-bce6-af5f55796fcc',
