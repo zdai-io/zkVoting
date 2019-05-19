@@ -66,7 +66,7 @@ async function initList() {
     }
     console.log(tr);
     for (let i = 0; i < tr.length; i++) {
-        $('#addresses').append('<li>' + tr[i].from + '</li>');
+        $('#addresses').append('<li><code>' + tr[i].from + '</code></li>');
     }
 }
 
