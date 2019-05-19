@@ -209,16 +209,29 @@ window.switchPage = switchPage;
 
 
 
+var Web3 = require('web3');
 
 async function main() {
-    var Web3 = require('web3');
-    var web3 = new Web3();
-    if (typeof web3 !== 'undefined') {
-    window.web3 = new Web3(web3.currentProvider);
-    web3.eth.defaultAccount = web3.eth.accounts[0];
-    } else {
-        console.error('web3 was undefined');
-    }
+
+    window.addEventListener('load', async () => {
+        if (window.ethereum) {
+            window.web3 = new Web3(ethereum);
+            try {
+                await ethereum.enable();
+            } catch (error) {
+            }
+        }
+        // Legacy dapp browsers...
+        else if (window.web3) {
+            window.web3 = new Web3(web3.currentProvider);
+        }
+        else {
+            console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+        }
+    });
+
+
+
     try {
         state = await ass.onboard();
         // User has been successfully onboarded and is ready to transact
