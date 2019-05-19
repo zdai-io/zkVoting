@@ -1,0 +1,43 @@
+{
+  "name": "pyrotoken-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zdai-io/pyrotoken.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zdai-io/pyrotoken/issues"
+  },
+  "homepage": "https://github.com/zdai-io/pyrotoken#readme",
+  "devDependencies": {
+    "bip39": "^2.2.0",
+    "dotenv": "^6.2.0",
+    "ethereumjs-tx": "^1.3.7",
+    "ethereumjs-util": "^5.2.0",
+    "ethereumjs-wallet": "^0.6.2",
+    "ganache-core": "2.5.1",
+    "js-scrypt": "^0.2.0",
+    "mocha": "^5.1.1",
+    "openzeppelin-solidity": "^2.1.3",
+    "truffle-hdwallet-provider": "1.0.5",
+    "web3": "1.0.0-beta.37",
+    "web3-provider-engine": "git+https://github.com/cgewecke/provider-engine.git#web3-one",
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "any-promise": "^1.3.0",
+    "bindings": "^1.3.1",
+    "websocket": "^1.0.28"
+  }
+}
