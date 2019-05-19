@@ -1,3 +1,5 @@
+![](https://i.imgur.com/9L5yKrr.jpg)
+
 ## Inspiration of Anonymous voting
 
 **Anonymous voting** is Based on Vitalik's opening speech and proposal from ETHNewYork hackathon.
