@@ -46,7 +46,7 @@ Circom based zkSnarks, with ideas from miximus. (Thank you Vitalik for your arti
 6. After the end of voting counters MapReduce all messages from last to first via snarks without publishing any subtotals. If the secret is new, we increment subtotal vector and add the secret to set of known secrets during the counting (how to do it is described [here](https://ethresear.ch/t/shorter-merkle-proofs-for-snapps/4044) ). If the secret is not new, we pass the addition and just update the state's salt to hide from others that the secret is not new here.
 7. After the end of the counting, the resulting vector is published with proof.
 
-
+![](https://i.imgur.com/sstjDQB.jpg)
 
 
 ## Challenges we ran into
