@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  vote:
+    build: ui
+    restart: always
+    environment:
+      VIRTUAL_HOST: vote.zdai.io
+      LETSENCRYPT_HOST: vote.zdai.io
+
+networks:
+  default:
+    external:
+      name: frontend_default
