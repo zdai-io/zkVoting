@@ -68,7 +68,7 @@ contract Voting {
     uint[2][2] memory b,
     uint[2] memory c,
     uint[2] memory input /* balance, hash */
-  ) public payable returns(bool) {
+  ) public returns(bool) {
     require(token.transferFrom(msg.sender, address(this), input[0]));
     require(!utxo[input[1]]);
     require(verifier.verifyDeposit(a, b, c, input));

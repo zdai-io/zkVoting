@@ -13,7 +13,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x8da5cb5b"
     },
     {
       "constant": true,
@@ -27,13 +28,15 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xfbdbad3c"
     },
     {
       "inputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "constructor"
+      "type": "constructor",
+      "signature": "constructor"
     },
     {
       "constant": false,
@@ -47,7 +50,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xfdacd576"
     },
     {
       "constant": false,
@@ -61,17 +65,19 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x0900f010"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a03191633179055610230806100326000396000f3fe608060405234801561001057600080fd5b5060043610610068577c010000000000000000000000000000000000000000000000000000000060003504630900f010811461006d5780638da5cb5b146100a2578063fbdbad3c146100d3578063fdacd576146100ed575b600080fd5b6100a06004803603602081101561008357600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1661010a565b005b6100aa6101bd565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100db6101d9565b60408051918252519081900360200190f35b6100a06004803603602081101561010357600080fd5b50356101df565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760008190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766001546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b1580156101a057600080fd5b505af11580156101b4573d6000803e3d6000fd5b50505050505b50565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60015481565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760015556fea165627a7a72305820e95f787de3d1f566b0b433a0a641889510331b739dc0bac22b7f02a2e9ba60a90029",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610068577c010000000000000000000000000000000000000000000000000000000060003504630900f010811461006d5780638da5cb5b146100a2578063fbdbad3c146100d3578063fdacd576146100ed575b600080fd5b6100a06004803603602081101561008357600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1661010a565b005b6100aa6101bd565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100db6101d9565b60408051918252519081900360200190f35b6100a06004803603602081101561010357600080fd5b50356101df565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760008190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766001546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b1580156101a057600080fd5b505af11580156101b4573d6000803e3d6000fd5b50505050505b50565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60015481565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760015556fea165627a7a72305820e95f787de3d1f566b0b433a0a641889510331b739dc0bac22b7f02a2e9ba60a90029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.2+commit.1df8f40c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"upgrade\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"lastCompletedMigration\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"completed\",\"type\":\"uint256\"}],\"name\":\"setCompleted\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/D/data/projects/mixed/zkVoting/smart-contract/contracts/Migraions.sol\":\"Migrations\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/D/data/projects/mixed/zkVoting/smart-contract/contracts/Migraions.sol\":{\"keccak256\":\"0xdb29caf815d8d25d779ebd1d2ea6e58b83215d1d6447a4ad9f5f906325097d49\",\"urls\":[\"bzzr://8bc45ab85153841a3d3923674b5a6b6764c220a6c9f67b1988d6a2c7246034f5\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a03191633179055610230806100326000396000f3fe608060405234801561001057600080fd5b5060043610610068577c010000000000000000000000000000000000000000000000000000000060003504630900f010811461006d5780638da5cb5b146100a2578063fbdbad3c146100d3578063fdacd576146100ed575b600080fd5b6100a06004803603602081101561008357600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1661010a565b005b6100aa6101bd565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100db6101d9565b60408051918252519081900360200190f35b6100a06004803603602081101561010357600080fd5b50356101df565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760008190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766001546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b1580156101a057600080fd5b505af11580156101b4573d6000803e3d6000fd5b50505050505b50565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60015481565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760015556fea165627a7a7230582088ce7fe12dd24b5a0eb63630c9fa1f3fb3b63d4fdcf47d2294ab8716e32c75bd0029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610068577c010000000000000000000000000000000000000000000000000000000060003504630900f010811461006d5780638da5cb5b146100a2578063fbdbad3c146100d3578063fdacd576146100ed575b600080fd5b6100a06004803603602081101561008357600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1661010a565b005b6100aa6101bd565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b6100db6101d9565b60408051918252519081900360200190f35b6100a06004803603602081101561010357600080fd5b50356101df565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760008190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766001546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b1580156101a057600080fd5b505af11580156101b4573d6000803e3d6000fd5b50505050505b50565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60015481565b60005473ffffffffffffffffffffffffffffffffffffffff163314156101ba5760015556fea165627a7a7230582088ce7fe12dd24b5a0eb63630c9fa1f3fb3b63d4fdcf47d2294ab8716e32c75bd0029",
   "sourceMap": "29:508:0:-;;;203:52;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;231:5:0;:18;;-1:-1:-1;;;;;;231:18:0;239:10;231:18;;;29:508;;;;;;",
   "deployedSourceMap": "29:508:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;29:508:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;370:164;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;370:164:0;;;;:::i;:::-;;54:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;79:34;;;:::i;:::-;;;;;;;;;;;;;;;;261:103;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;261:103:0;;:::i;370:164::-;167:5;;;;153:10;:19;149:43;;;432:19;465:10;432:44;;483:8;:21;;;505:22;;483:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;483:45:0;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;483:45:0;;;;183:1;149:43;370:164;:::o;54:20::-;;;;;;:::o;79:34::-;;;;:::o;261:103::-;167:5;;;;153:10;:19;149:43;;;324:22;:34;261:103::o",
   "source": "pragma solidity ^0.5.2;\r\n\r\n\r\ncontract Migrations {\r\n  address public owner;\r\n  uint public lastCompletedMigration;\r\n\r\n  modifier restricted() {\r\n    if (msg.sender == owner) {\r\n      _;\r\n    }\r\n  }\r\n\r\n  constructor() public {\r\n    owner = msg.sender;\r\n  }\r\n\r\n  function setCompleted(uint completed) public restricted {\r\n    lastCompletedMigration = completed;\r\n  }\r\n\r\n  function upgrade(address newAddress) public restricted {\r\n    Migrations upgraded = Migrations(newAddress);\r\n    upgraded.setCompleted(lastCompletedMigration);\r\n  }\r\n}\r\n",
-  "sourcePath": "C:/Users/snjax/Documents/projects/mixed/zDai-mixer/smart-contract/contracts/Migraions.sol",
+  "sourcePath": "D:/data/projects/mixed/zkVoting/smart-contract/contracts/Migraions.sol",
   "ast": {
-    "absolutePath": "/C/Users/snjax/Documents/projects/mixed/zDai-mixer/smart-contract/contracts/Migraions.sol",
+    "absolutePath": "/D/data/projects/mixed/zkVoting/smart-contract/contracts/Migraions.sol",
     "exportedSymbols": {
       "Migrations": [
         57
@@ -183,7 +189,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2234,
+                        "referencedDeclaration": 2533,
                         "src": "153:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -294,7 +300,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2234,
+                        "referencedDeclaration": 2533,
                         "src": "239:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -724,7 +730,7 @@
     "src": "0:539:0"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/snjax/Documents/projects/mixed/zDai-mixer/smart-contract/contracts/Migraions.sol",
+    "absolutePath": "/D/data/projects/mixed/zkVoting/smart-contract/contracts/Migraions.sol",
     "exportedSymbols": {
       "Migrations": [
         57
@@ -836,7 +842,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2234,
+                        "referencedDeclaration": 2533,
                         "src": "153:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -947,7 +953,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2234,
+                        "referencedDeclaration": 2533,
                         "src": "239:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1380,9 +1386,22 @@
     "name": "solc",
     "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
-  "networks": {},
-  "schemaVersion": "3.0.2",
-  "updatedAt": "2019-02-17T13:49:24.040Z",
+  "networks": {
+    "1558228994380": {
+      "events": {},
+      "links": {},
+      "address": "0xC505111Fbc1d52DbA4ac2a392D0d0c99cB942c0E",
+      "transactionHash": "0xf6f2ca9286f343df131d9e3354b7c45663f970a1cfb7c6c5faf13e890eca1271"
+    },
+    "1558230804775": {
+      "events": {},
+      "links": {},
+      "address": "0x3E585DE4302cF8789C5c99cA642237408520b8DB",
+      "transactionHash": "0x00b1f14b8e476c52c9ee9764d4b582b7137c06bd31b4a5fca902cb5436c46999"
+    }
+  },
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-05-19T01:54:12.952Z",
   "devdoc": {
     "methods": {}
   },

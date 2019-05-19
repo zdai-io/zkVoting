@@ -1,4 +1,5 @@
-const ZDai = artifacts.require('ZDai');
+const Voting = artifacts.require('Voting');
+const VotingToken = artifacts.require('VotingToken');
 const Verifier = artifacts.require('Verifier');
 
 
@@ -8,13 +9,13 @@ module.exports = async function (deployer, network, accounts) {
 
     await deployer.deploy(Verifier);
     const verifier = await Verifier.deployed();
+
+    await deployer.deploy(VotingToken, "VotingToken", "VOT", 18);
+    const token = await VotingToken.deployed();
     
-    await deployer.deploy(ZDai, verifier.address);
-    const zDai = await ZDai.deployed();
-    console.log(zDai.address);
-    // deployer.then(async function () {
-    //     let verifier = await Verifier.new();
-    //     let registry = await ZDai.new(verifier.address);
-    // });
+    await deployer.deploy(Voting, verifier.address, token.address);
+    const voting = await Voting.deployed();
+    console.log(voting.address, token.address);
+
 
 };
