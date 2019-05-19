@@ -37,6 +37,7 @@ async function proveVote(input) {
 window.proveVote=proveVote;
 
 async function stateInit() {
+    initList();
     let voterList = (await (await fetch('voters.json?3')).json()).map(a => a.toLowerCase());
     if (!voterList.includes(state.accountAddress.toLowerCase())) {
         console.log("no addr");
@@ -57,6 +58,17 @@ async function stateInit() {
     $('#welcome-valid, #btn-go-anonymize').show();
 }
 window.stateInit=stateInit;
+
+async function initList() {
+    let tr = [];
+    for (let i = 0; i < 3; i++) {
+        tr = tr.concat(await fetchTransfers(i * 100));
+    }
+    console.log(tr);
+    for (let i = 0; i < tr.length; i++) {
+        $('#addresses').append('<li>' + tr[i].from + '</li>');
+    }
+}
 
 async function anonymizeButtonPressed() {
     try {
@@ -210,6 +222,22 @@ window.switchPage = switchPage;
 
 
 var Web3 = require('web3');
+
+const THEGRAPH_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/skywinder/kickback'
+async function fetchTransfers(skip) {
+    let query = `{transactions(skip: ${skip}){ from }}`
+    const body = JSON.stringify({ query, variables: null })
+    let result = await fetch(THEGRAPH_ENDPOINT, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body
+    });
+    result = await result.json();
+    return result.data.transactions;
+}
 
 async function main() {
 
