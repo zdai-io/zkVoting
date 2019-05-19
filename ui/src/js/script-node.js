@@ -49,7 +49,7 @@ async function stateInit() {
     let bal = await contract.methods.balanceOf(state.accountAddress).call();
     console.log("bal:" + bal.toString());
 
-    if (bal.eq(0)) {
+    if (web3.utils.fromWei(bal)=="0") {
         console.log("no bal");
         $("#welcome-voted, #btn-go-results").show();
         return;
