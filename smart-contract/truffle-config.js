@@ -55,6 +55,13 @@ module.exports = {
       provider: new HDWalletProvider(process.env.MNEMONIC, "https://sokol.poa.network/", 0, 10),
       network_id: "*", // Match any network id
       skipDryRun: true
+    },
+     skale: {
+         provider: new HDWalletProvider(process.env.MNEMONIC, "http://157.230.154.5", 0, 10),
+         port: 8134,
+         gasPrice: 0,
+         network_id: "*",
+         skipDryRun: true
     }
   },
 };
