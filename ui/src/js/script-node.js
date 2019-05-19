@@ -19,19 +19,15 @@ async function getVotingContract() {
     return ass.Contract(web3.eth.contract(abi).at(votingAddress));
 }
 
-function rbigint (nbytes) {
-    // todo
-}
-function serializeAndHashUTXO(tx) {
-    // todo
-}
+const {rbigint, serializeAndHashUTXO, makeProof} = require("../../../src/utils.js");
+
 
 async function proveDeposit(input) {
-    // todo
+    return await makeProof('Deposit', input);
 }
 
 async function proveVote(input) {
-    // todo
+    return await makeProof('Withdrawal', input);
 }
 
 async function stateInit() {
