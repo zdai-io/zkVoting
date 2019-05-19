@@ -63,10 +63,10 @@ module.exports = {
       skipDryRun: true
     },
       thunder: {
-        provider: new HDWalletProvider(process.env.MNEMONIC, "https://testnet-rpc.thundercore.com:8544"),
+        provider: new HDWalletProvider(process.env.MNEMONIC, "https://mainnet-rpc.thundercore.com/"),
         network_id: "*",
         gas: 3000000,
-        gasPrice: 50000000000
+        gasPrice: 20000000000
 },
   },
 };
