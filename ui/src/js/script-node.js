@@ -11,14 +11,14 @@ let state;
 
 async function getErcContract() {
     let abi = await (await fetch("abiToken.json")).json();
-    return new web3.eth.Contract(abi, tokenAddress, {from:web3.eth.defaultAccount});
+    return new web3.eth.Contract(abi, tokenAddress);
     //return ass.Contract(web3.eth.contract(abi).at(tokenAddress));
 }
 window.getErcContract=getErcContract;
 
 async function getVotingContract() {
     let abi = await (await fetch("abiVoting.json")).json();
-    return new web3.eth.Contract(abi, tokenAddress, {from:web3.eth.defaultAccount});
+    return new web3.eth.Contract(abi, votingAddress);
     //return ass.Contract(web3.eth.contract(abi).at(votingAddress));
 }
 window.getVotingContract=getVotingContract;
@@ -90,9 +90,12 @@ async function anonymizeButtonPressed() {
             owner: addrToInt(proxy),
             hash: hash
         };
+        
         let [pi_a, pi_b, pi_c, pubinputs] = await proveDeposit(input);
+        console.log("Deposit proof", [pi_a, pi_b, pi_c, pubinputs]);
+
         let voting = await getVotingContract();
-        let result = await voting.methods.deposit(pi_a, pi_b, pi_c, pubinputs).send({from:state.accountAddress, gas:"6000000", gasprice:"2000000000"});
+        let result = await voting.methods.deposit(pi_a, pi_b, pi_c, pubinputs).send({from: (await web3.eth.getAccounts())[0], gas:"6000000", gasprice:"2000000000"});
         localStorage.state = 'vote';
         switchPage('vote');
     }
@@ -131,7 +134,7 @@ async function voteButtonPressed() {
         };
 
         [pi_a, pi_b, pi_c, pubinputs] = await proveVote(input);
-        let result = await voting.methods.withdrawal(pi_a, pi_b, pi_c, pubinputs, selectedAddr).send({from:state.accountAddress, gas:"6000000", gasprice:"2000000000"});
+        let result = await voting.methods.withdrawal(pi_a, pi_b, pi_c, pubinputs, selectedAddr).send({from:(await web3.eth.getAccounts())[0], gas:"6000000", gasprice:"2000000000"});
         localStorage.state = 'stats';
         switchPage('stats');
         stateStats();
