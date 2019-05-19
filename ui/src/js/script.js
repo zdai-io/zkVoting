@@ -23,8 +23,6 @@ async function makeProof(name, input) {
 async function stateInit() {
     if (!voterList.includes(state.accountAddress.toLowerCase())) {
         console.log("no addr");
-        // todo Your address is not in list of EthNewYork attendees, please select address
-        //   you used to stake on kickback. [[List]]
         return;
     }
     let contract = await getContract();
@@ -34,8 +32,6 @@ async function stateInit() {
 
     if (bal.eq(0)) {
         console.log("no bal");
-        // todo Your address doesn't contain a vote token, looks like you already voted with this address
-        // button go to results page
         return;
     }
 
@@ -43,8 +39,6 @@ async function stateInit() {
 }
 
 async function stateAnonymize() {
-    // First, you need to make a shielded transfer of your token to another address
-    // that will be used to submit your vote. Generate a new wallet and enter its address below:
     let proxy = "0xd00B71E95f1c85b856dD54Cb0ad22891eAFaA5de";
 
     // todo private transfer
@@ -52,7 +46,6 @@ async function stateAnonymize() {
 
 async function stateVote() {
     // todo vote list
-    // Submit your vote for one of those options
 
     // todo stats
 }
@@ -66,8 +59,6 @@ async function stateStats() {
 }
 
 async function stateFaucet() {
-    // Looks like your wallet doesn't have any eth on it. You will need some to pay the gas fee
-    // You can get some Rinkeby ether for free by clicking this button
     // todo
     //
     let result = await fetch("https://faucet.zdai.io/web3/rinkeby/tokensPlease", {
