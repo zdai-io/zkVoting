@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&subset=cyrillic');
+
+body {
+    color: black !important;
+    background: white !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: black !important;
+}
+
+.main-progress-container {
+    margin-top: 4em;
+}
+
+.progressbar {
+    margin-top: 4em;
+    counter-reset: step;
+}
+
+.progressbar li {
+    list-style-type: none;
+    width: 25%;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7d7d7d;
+}
+
+.progressbar li:before {
+    width: 40px;
+    height: 40px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 30px;
+    border: 4px solid #7d7d7d;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.progressbar li:after {
+    width: 100%;
+    height: 4px;
+    content: '';
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+
+.progressbar li:first-child:after {
+    content: none;
+}
+
+.progressbar li.active {
+    color: #800870;
+}
+
+.progressbar li.active:before {
+    border-color: #7c2db7;
+}
+
+.progressbar li.active + li:after {
+    background-color: #7c2db7;
+}
+
+#stepOne {
+    margin-top: 5em;
+}
+
+#banner {
+    /*margin-right: 3em;*/
+    /*margin-top: -5em;*/
+}
+
+section {
+    margin-top: 2em;
+}
+
+.card {
+    border-radius: 30px;
+    box-shadow: none;
+}
+.ct-grids {
+    stroke: rgba(255, 255, 255, 0.1) !important;
+    stroke-width: 1px;
+    stroke-dasharray: 2px;
+}
+.ct-grid {
+    stroke: rgba(255, 255, 255, 0) !important;
+}
+foreignObject {
+    font-weight: bold !important;
+    color: black !important;
+}

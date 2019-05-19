@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<link>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+      name='viewport'/>
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" type="text/css"
+      href="src/css/fonts.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" type="text/css" href="src/css/material-icons.css">
+<link href="src/css/material.css" rel="stylesheet"/>
+<link href="src/css/custom.css" rel="stylesheet">
+<link rel="stylesheet"
+      href="src/css/chartlist.css">
+<link rel="stylesheet" type="text/css" href="src/css/loading.css"/>
+<link rel="stylesheet" type="text/css" href="src/css/loading-btn.css"/>
+<title>ZVoting</title>
+<body>
+<div class="container main-progress-container">
+    <div id="bar" class="row">
+        <div class="col-12 text-center">
+            <ul class="progressbar">
+                <li id="st1">Step 1</li>
+                <li id="st2">Step 2</li>
+                <li id="st3">Step 3</li>
+                <li id="st4">Step 4</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<section id="step1">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-body ld-over" id="loader1">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK</h3>
+                                <div class="btn btn-lg btn-round btn-github btn-default"
+                                     onclick="activateLoading('loader1'); goNext()">
+                                    My Button
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="display: none" id="step2">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-body ld-over" id="loader2">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK</h3>
+                                <div class="form-group bmd-form-group col-md-8 col-lg-6 offset-lg-3 offset-md-1">
+                                    <input type="text" class="form-control" id="justForm" placeholder="Some VOENTORG">
+                                </div>
+
+                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="goNext();">DOLGOV
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="display: none" id="step3">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-body ld-over" id="loader3">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK</h3>
+                                <div class="form-group bmd-form-group col-md-8 col-lg-6 offset-lg-3 offset-md-1">
+                                    <input type="text" class="form-control" id="justForm2" placeholder="Some VOENTORG">
+                                </div>
+                                <button class="btn btn-lg btn-round btn-github btn-default" onclick="goNext();">DOLGOV
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<section style="display: none" id="step4">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-body ld-over" id="loader4">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios1" value="option1">
+                                            SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
+                                            <span class="circle">
+            <span class="check"></span>
+        </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios2" value="option2" checked>
+                                            SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
+                                            <span class="circle">
+            <span class="check"></span>
+        </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios3" value="option2" checked>
+                                            SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
+                                            <span class="circle">
+            <span class="check"></span>
+        </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios4" value="option2" checked>
+                                            SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
+                                            <span class="circle">
+            <span class="check"></span>
+        </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                   id="exampleRadios5" value="option2" checked>
+                                            SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK SNARK
+                                            <span class="circle">
+            <span class="check"></span>
+        </span>
+                                        </label>
+                                    </div>
+                                </form>
+                                <button class="btn btn-lg btn-round btn-github btn-default"
+                                        onclick="goNext(); initGraphic();">
+                                    DOLGOV
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<section id="step5">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-body ld-over" id="loader5">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="ct-chart ct-perfect-fourth"></div>
+                        <!-- more here https://gionkunz.github.io/chartist-js/getting-started.html-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+<script src="src/js/chartlist.js"></script>
+<script src="src/js/jquery.min.js"></script>
+<script src="src/js/popper.min.js"></script>
+<script src="src/js/bootstrap.js"></script>
+<script src="src/js/material.js"></script>
+<script>
+    var pos = 1;
+
+    function initGraphic() {
+        new Chartist.Bar('.ct-chart', {
+            labels: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+            series: [20, 60, 120, 200, 180, 20, 10]
+        }, {
+            distributeSeries: true,
+        });
+
+    }
+
+    function activateLoading(id) {
+        $(id).addClass("running")
+    }
+
+    function deactivateLoading(id) {
+        $(id).removeClass("running")
+    }
+
+    function goNext() {
+        wait();
+        let step = "#step" + pos;
+        let st = "#st" + pos;
+        $(step).hide();
+        pos++;
+        let nextStep = "#step" + pos;
+        $(st).addClass("active");
+        $(nextStep).show();
+        if (pos === 5) {
+            $('#bar').hide()
+        }
+    }
+
+    async function wait() {
+        await (500000);
+    }
+</script>
+</body>
+</html>
