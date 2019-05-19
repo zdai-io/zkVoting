@@ -1,0 +1,156 @@
+[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      },
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "burnedSalt",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0x15144ae8"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "utxo",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0xb9056439"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_verifier",
+        "type": "address"
+      },
+      {
+        "name": "_token",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor",
+    "signature": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "hash",
+        "type": "uint256"
+      }
+    ],
+    "name": "UtxoCreated",
+    "type": "event",
+    "signature": "0x5afbb10aa70126bb6b28672942d03f8f2de6a49dd7c0e34ed647a01d51362bc1"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "hash",
+        "type": "uint256"
+      }
+    ],
+    "name": "UtxoRemoved",
+    "type": "event",
+    "signature": "0x21d9d7f470fb9746b076065f4d8e30ebf802f7f33d5b67a5840b2557992e4220"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "a",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "b",
+        "type": "uint256[2][2]"
+      },
+      {
+        "name": "c",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "input",
+        "type": "uint256[13]"
+      },
+      {
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "withdrawal",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0xa43d526d"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "a",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "b",
+        "type": "uint256[2][2]"
+      },
+      {
+        "name": "c",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "input",
+        "type": "uint256[2]"
+      }
+    ],
+    "name": "deposit",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0xeacec396"
+  }
+]

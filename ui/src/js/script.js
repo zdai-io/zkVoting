@@ -1,4 +1,5 @@
-const tokenAddress = "0x2c1c52946dc54276daa5db9ddce2e929d93eb16e";
+const tokenAddress = "0x2c1c52946dc54276daa5db9ddce2e929d93eb16e"; // todo insert prod address
+const votingAddress = "0x2c1c52946dc54276daa5db9ddce2e929d93eb16e";
 const assistConfig = {
     networkId: 4,
     dappId: '743c7131-72eb-48e6-bce6-af5f55796fcc',
@@ -9,34 +10,28 @@ if (!localStorage.state) localStorage.state = "init";
 let state;
 
 async function getErcContract() {
-    let abi = await (await fetch("abi.json")).json();
+    let abi = await (await fetch("abiToken.json")).json();
     return ass.Contract(web3.eth.contract(abi).at(tokenAddress));
 }
 
 async function getVotingContract() {
+    let abi = await (await fetch("abiVoting.json")).json();
+    return ass.Contract(web3.eth.contract(abi).at(votingAddress));
+}
+
+function rbigint (nbytes) {
     // todo
-    let abi = await (await fetch("abi.json")).json();
-    return ass.Contract(web3.eth.contract(abi).at(tokenAddress));
 }
-
-const rbigint = (nbytes) => snarkjs.bigInt.leBuff2int(crypto.randomBytes(nbytes));
 function serializeAndHashUTXO(tx) {
-    const b = Buffer.concat([snarkjs.bigInt(tx.balance).leInt2Buff(30), snarkjs.bigInt(tx.salt).leInt2Buff(14), snarkjs.bigInt(tx.owner).leInt2Buff(20)]);
-    const h = pedersen.hash(b);
-    const hP = babyjub.unpackPoint(h);
-    return hP[0];
+    // todo
 }
 
-async function makeProof(name, input) {
-
+async function proveDeposit(input) {
+    // todo
 }
 
-async function proveDeposit() {
-
-}
-
-async function proveVote() {
-
+async function proveVote(input) {
+    // todo
 }
 
 async function stateInit() {
