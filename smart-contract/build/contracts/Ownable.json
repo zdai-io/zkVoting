@@ -76,6 +76,7 @@
       "type": "function"
     }
   ],
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -2799,8 +2800,8 @@
     "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.2",
-  "updatedAt": "2019-05-19T07:21:46.992Z",
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-05-19T11:43:29.615Z",
   "devdoc": {
     "details": "The Ownable contract has an owner address, and provides basic authorization control functions, this simplifies the implementation of \"user permissions\".",
     "methods": {

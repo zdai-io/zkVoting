@@ -236,6 +236,7 @@
       "type": "function"
     }
   ],
+  "metadata": "",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -1525,8 +1526,8 @@
     "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.2",
-  "updatedAt": "2019-05-19T07:21:46.984Z",
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-05-19T11:43:29.637Z",
   "devdoc": {
     "details": "The decimals are only for visualization purposes. All the operations are done using the smallest and indivisible token unit, just as on Ethereum all the operations are done in wei.",
     "methods": {

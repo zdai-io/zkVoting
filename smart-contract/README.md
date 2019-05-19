@@ -1,1 +1,1 @@
-# Smart contract for security transfer
+# Smart contract for security voting
