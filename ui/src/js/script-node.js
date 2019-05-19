@@ -11,24 +11,30 @@ let state;
 
 async function getErcContract() {
     let abi = await (await fetch("abiToken.json")).json();
-    return ass.Contract(web3.eth.contract(abi).at(tokenAddress));
+    return new web3.eth.Contract(abi, tokenAddress, {from:web3.eth.defaultAccount});
+    //return ass.Contract(web3.eth.contract(abi).at(tokenAddress));
 }
+window.getErcContract=getErcContract;
 
 async function getVotingContract() {
     let abi = await (await fetch("abiVoting.json")).json();
-    return ass.Contract(web3.eth.contract(abi).at(votingAddress));
+    return new web3.eth.Contract(abi, tokenAddress, {from:web3.eth.defaultAccount});
+    //return ass.Contract(web3.eth.contract(abi).at(votingAddress));
 }
+window.getVotingContract=getVotingContract;
 
-const {rbigint, serializeAndHashUTXO, makeProof} = require("../../../src/utils.js");
+const {rbigint, serializeAndHashUTXO, makeProof, addrToInt} = require("../../../src/utils.js");
 
 
 async function proveDeposit(input) {
     return await makeProof('Deposit', input);
 }
+window.proveDeposit=proveDeposit;
 
 async function proveVote(input) {
     return await makeProof('Withdrawal', input);
 }
+window.proveVote=proveVote;
 
 async function stateInit() {
     let voterList = (await (await fetch('voters.json?3')).json()).map(a => a.toLowerCase());
@@ -38,8 +44,8 @@ async function stateInit() {
         return;
     }
     let contract = await getErcContract();
-    let bal = await contract.balanceOf.call(state.accountAddress);
-
+    //let bal = await contract.balanceOf.call(state.accountAddress);
+    let bal = await contract.methods.balanceOf(state.accountAddress).call();
     console.log("bal:" + bal.toString());
 
     if (bal.eq(0)) {
@@ -50,6 +56,7 @@ async function stateInit() {
 
     $('#welcome-valid, #btn-go-anonymize').show();
 }
+window.stateInit=stateInit;
 
 async function anonymizeButtonPressed() {
     try {
@@ -59,16 +66,16 @@ async function anonymizeButtonPressed() {
         let salt = rbigint(14);
         localStorage.salt = salt; // save private coin data
         let tx = {
-            balance: 1,
+            balance: web3.utils.toWei("1"),
             salt: salt,
-            owner: proxy
+            owner: addrToInt(proxy)
         };
         let hash = serializeAndHashUTXO(tx);
         localStorage.hash = hash;
         let input = {
-            balance: 1,
+            balance:  web3.utils.toWei("1"),
             salt: salt,
-            owner: proxy,
+            owner: addrToInt(proxy),
             hash: hash
         };
         let [pi_a, pi_b, pi_c, pubinputs] = await proveDeposit(input);
@@ -84,6 +91,7 @@ async function anonymizeButtonPressed() {
         deactivateLoading('#loader2');
     }
 }
+window.anonymizeButtonPressed=anonymizeButtonPressed;
 
 async function voteButtonPressed() {
     try {
@@ -103,9 +111,9 @@ async function voteButtonPressed() {
         selector[answerList.keys().indexOf(selected)] = 1;
 
         let input = {
-            balance: 1,
+            balance: web3.utils.toWei("1"),
             salt: localStorage.salt,
-            owner: state.accountAddress,
+            owner: addrToInt(state.accountAddress),
             all_in_hashes: Array(10).fill(localStorage.hash), // todo fill with actual utxos
             in_selector: selector
         };
@@ -123,6 +131,8 @@ async function voteButtonPressed() {
         deactivateLoading('#loader4');
     }
 }
+window.voteButtonPressed=voteButtonPressed;
+
 
 async function stateStats() {
     let contract = await getErcContract();
@@ -130,7 +140,8 @@ async function stateStats() {
     let results = [], labels = [], series = [];
     let totals = 0;
     for(let ans in answerList) {
-        let bal = await contract.balanceOf.call(answerList[ans]);
+        //let bal = await contract.balanceOf.call(answerList[ans]);
+        let bal = await contract.methods.balanceOf(answerList[ans]).call();
         results[ans] = bal;
         totals += bal;
     }
@@ -147,6 +158,8 @@ async function stateStats() {
         axisY: { showGrid: false },
     });
 }
+window.stateStats=stateStats;
+
 
 async function faucetButtonPressed() {
     try {
@@ -172,6 +185,7 @@ async function faucetButtonPressed() {
         deactivateLoading('#loader3');
     }
 }
+window.faucetButtonPressed = faucetButtonPressed;
 
 const steps = {
     init: 1,
@@ -181,6 +195,7 @@ const steps = {
     faucet: 0,
 };
 
+
 function switchPage(step) {
     $('.step').hide();
     $('.step-progress').removeClass('active');
@@ -189,8 +204,21 @@ function switchPage(step) {
         $('#step' + i + '-progress').addClass('active');
     }
 }
+window.switchPage = switchPage;
+
+
+
+
 
 async function main() {
+    var Web3 = require('web3');
+    var web3 = new Web3();
+    if (typeof web3 !== 'undefined') {
+    window.web3 = new Web3(web3.currentProvider);
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+    } else {
+        console.error('web3 was undefined');
+    }
     try {
         state = await ass.onboard();
         // User has been successfully onboarded and is ready to transact
